@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "npm run start --prefix backend",
-    "postinstall": "npm run build"
+    "build": "cd backend && rm -rf node_modules package-lock.json && npm install --omit=dev && cd ../frontend && rm -rf node_modules package-lock.json && npm install && npm run build",
+    "start": "cd backend && npm start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
 }
