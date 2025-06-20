@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
   "scripts": {
-    "build": "cd backend && rm -rf node_modules package-lock.json && npm install --omit=dev && cd ../frontend && rm -rf node_modules package-lock.json && npm install && npm run build",
-    "start": "cd backend && npm start"
-  },
+    "build": "npm ci --prefix backend --omit=dev && npm ci --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  }
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
